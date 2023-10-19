@@ -9,6 +9,7 @@ contract fundMeTest is Test {
     FundMe fundMe;
 
     function setUp() external {
+       //us -> fundMeTest -> fundMe
         fundMe = new FundMe();
     }
 
@@ -18,6 +19,13 @@ contract fundMeTest is Test {
     //     assertEq(number, 2);
     // }
     function testMinimumDollarIsFive() public {
-        assertEq(fundMe.MINIMUM_USD(), 4e18);
+        assertEq(fundMe.MINIMUM_USD(), 5e18);
+    }
+
+    function testOwnerIsMsgSender() public {
+        console.log(fundMe.i_owner());
+        console.log(msg.sender);
+        assertEq(fundMe.i_owner(), address(this));
     }
 }
+
