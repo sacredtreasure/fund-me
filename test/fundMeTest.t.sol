@@ -10,7 +10,7 @@ contract fundMeTest is Test {
 
     function setUp() external {
        //us -> fundMeTest -> fundMe
-        fundMe = new FundMe();
+        fundMe = new FundMe(0x694A1769357215DE4FAC081bf1f309aDC325306);
     }
 
     // function testDemo() public  {
