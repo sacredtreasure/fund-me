@@ -4,13 +4,16 @@ pragma solidity ^0.8.18;
 
 import {Test, console} from "lib/forge-std/src/Test.sol";
 import {FundMe} from "../src/fundMe.sol";
+import {deployFundMe} from "../script/deployFundMe.s.sol";
 
 contract fundMeTest is Test {
     FundMe fundMe;
 
     function setUp() external {
        //us -> fundMeTest -> fundMe
-        fundMe = new FundMe(0x694A1769357215DE4FAC081bf1f309aDC325306);
+        // fundMe = new FundMe(0x694A1769357215DE4FAC081bf1f309aDC325306);
+        deployFundMe DeployFundMe = new deployFundMe();
+        fundMe = DeployFundMe.run();
     }
 
     // function testDemo() public  {
